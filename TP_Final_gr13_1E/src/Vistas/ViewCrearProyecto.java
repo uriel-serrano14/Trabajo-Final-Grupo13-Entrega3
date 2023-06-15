@@ -152,44 +152,72 @@ public class ViewCrearProyecto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        if (jtxtNombre.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "CAMPO Nombre -> VACIO!!", "Advertencia!", JOptionPane.WARNING_MESSAGE);
+            jtxtNombre.requestFocus();
+        } else if (!validarLetrasYNumeros(jtxtNombre.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Dato Nombre incorrecto >> Intente nuevamente...", "Error!", JOptionPane.ERROR_MESSAGE);
+            jtxtNombre.requestFocus();
+            jtxtNombre.setText("");
+        } else if (jtxtDescripcion.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "CAMPO Descripción -> VACIO!!", "Advertencia!", JOptionPane.WARNING_MESSAGE);
+            jtxtDescripcion.requestFocus();
+        } else if (!validarLetrasYNumeros(jtxtDescripcion.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Dato Descripción incorrecto >> Intente nuevamente...", "Error!", JOptionPane.ERROR_MESSAGE);
+            jtxtDescripcion.requestFocus();
+            jtxtDescripcion.setText("");
+        } else if (jdcFechaInicio.getDate() == null) {
+            JOptionPane.showMessageDialog(this, "CAMPO Fecha -> VACIO!!", "Advertencia!", JOptionPane.WARNING_MESSAGE);
+            jdcFechaInicio.requestFocus();
+        } else {
+            try {
+                ProyectoData proyectoData = new ProyectoData();
+                Proyecto proyecto = new Proyecto();
+                proyecto.setNombre(jtxtNombre.getText());
+                proyecto.setDescripcion(jtxtDescripcion.getText());
+                java.util.Date fechaSeleccionada = jdcFechaInicio.getDate();
+                java.sql.Date fechaSQL = new java.sql.Date(fechaSeleccionada.getTime());
+                // Convertir a LocalDate
+                LocalDate fechaLocal = fechaSQL.toLocalDate();
+                proyecto.setFechaInicio(fechaLocal);
 
-        ProyectoData proyectoData = new ProyectoData();
-        Proyecto proyecto = new Proyecto();
-        proyecto.setNombre(jtxtNombre.getText());
-        proyecto.setDescripcion(jtxtDescripcion.getText());
-        java.util.Date fechaSeleccionada = jdcFechaInicio.getDate();
-        java.sql.Date fechaSQL = new java.sql.Date(fechaSeleccionada.getTime());
-        // Convertir a LocalDate
-        LocalDate fechaLocal = fechaSQL.toLocalDate();
-        proyecto.setFechaInicio(fechaLocal);
+                String estadoSeleccionadoString = (String) jcbEstado.getSelectedItem();
+                int estadoSeleccionado = 1;
+                switch (estadoSeleccionadoString) {
+                    case "Pendiente":
+                        estadoSeleccionado = 1;
+                        break;
+                    case "Progreso":
+                        estadoSeleccionado = 2;
+                        break;
+                    case "Finalizado":
+                        estadoSeleccionado = 3;
+                        break;
+                }
 
-        String estadoSeleccionadoString = (String) jcbEstado.getSelectedItem();
-        int estadoSeleccionado = 1;
-        switch (estadoSeleccionadoString) {
-            case "Pendiente":
-                estadoSeleccionado = 1;
-                break;
-            case "Progreso":
-                estadoSeleccionado = 2;
-                break;
-            case "Finalizado":
-                estadoSeleccionado = 3;
-                break; 
+                proyecto.setEstado(estadoSeleccionado);
+                proyectoData.guardarProyecto(proyecto);
+                limpiar();
+                jcbEstado.addItem("Pendiente");
+                jcbEstado.addItem("Progreso");
+                jcbEstado.addItem("Finalizado");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "El proyecto no pudo ser agregado!", "Error!", JOptionPane.ERROR_MESSAGE);
+                limpiar();
+            }
         }
-        
-        proyecto.setEstado(estadoSeleccionado);
-        proyectoData.guardarProyecto(proyecto);
-        limpiar();
-        jcbEstado.addItem("Pendiente");
-        jcbEstado.addItem("Progreso");
-        jcbEstado.addItem("Finalizado");
+
     }//GEN-LAST:event_jbGuardarActionPerformed
     public void limpiar() {
         jtxtNombre.setText("");
         jtxtDescripcion.setText("");
-         jcbEstado.removeAllItems();
+        jcbEstado.removeAllItems();
         jdcFechaInicio.setDate(null);
 
+    }
+
+    public static boolean validarLetrasYNumeros(String letrasNumeros) {
+        return letrasNumeros.matches("^[a-zA-Z0-9 ]*$");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
