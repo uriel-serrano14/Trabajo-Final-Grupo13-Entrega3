@@ -16,7 +16,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         setLocationRelativeTo(null);
-        setSize(900, 700);
+        setSize(900, 500);
 
     }
 
@@ -120,7 +120,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu4.setText("EQUIPOS");
 
-        jMenuItem6.setText("Crear Equipos");
+        jMenuItem6.setText("CREAR EQUIPOS");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -128,7 +128,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem6);
 
-        jMenuItem7.setText("Miebros y Tareas");
+        jMenuItem7.setText("MIEMBROS Y TAREAS");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
