@@ -64,8 +64,9 @@ public class ViewCrearEquipo extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Proyecto:");
 
-        jtxtNombre.setBackground(new java.awt.Color(0, 153, 255));
+        jtxtNombre.setBackground(new java.awt.Color(60, 63, 65));
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/salir2.png"))); // NOI18N
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
