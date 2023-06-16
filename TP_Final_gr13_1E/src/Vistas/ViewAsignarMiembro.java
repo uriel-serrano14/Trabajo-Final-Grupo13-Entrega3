@@ -78,6 +78,11 @@ public class ViewAsignarMiembro extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jtMimebros);
 
         jbAsignar.setText("ASIGNAR");
+        jbAsignar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAsignarActionPerformed(evt);
+            }
+        });
 
         jrbAsignados.setText("ASIGNADOS");
         jrbAsignados.addActionListener(new java.awt.event.ActionListener() {
@@ -165,6 +170,13 @@ public class ViewAsignarMiembro extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_jrbAsignadosActionPerformed
+
+    private void jbAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAsignarActionPerformed
+          Equipo eq = (Equipo) jcbEquipos.getSelectedItem();
+          
+          
+          
+    }//GEN-LAST:event_jbAsignarActionPerformed
 
     private void llenarTablaAsignados() {
 
