@@ -273,7 +273,7 @@ public class EquipoMiembrosData {
     public List<Miembro> buscarMiembrosSinEquipo() {
 
         List<Miembro> miembros = new ArrayList();
-        String sql = "SELECT * FROM miembro WHERE idMiembro NOT IN (SELECT idMiembro FROM equipomiembros);";
+        String sql = "SELECT * FROM miembro WHERE idMiembro NOT IN (SELECT idMiembro FROM equipomiembros) AND estado = true;";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);

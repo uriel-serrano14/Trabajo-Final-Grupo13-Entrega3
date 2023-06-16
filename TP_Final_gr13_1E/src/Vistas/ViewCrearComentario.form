@@ -52,13 +52,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jtxtComentario" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jdcFechaAvance" min="-2" pref="37" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jbGuardar" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jdcFechaAvance" pref="43" max="32767" attributes="0"/>
+                  <Component id="jbGuardar" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
@@ -82,7 +80,7 @@
     <Component class="javax.swing.JTextField" name="jtxtComentario">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="99" red="0" type="rgb"/>
+          <Color blue="41" green="3f" red="3c" type="rgb"/>
         </Property>
       </Properties>
     </Component>
@@ -92,9 +90,17 @@
       </Properties>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jdcFechaAvance">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="cc" type="rgb"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbGuardar">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/disquet.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
       <Events>

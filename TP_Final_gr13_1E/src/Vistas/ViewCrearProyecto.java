@@ -81,7 +81,7 @@ public class ViewCrearProyecto extends javax.swing.JInternalFrame {
             }
         });
 
-        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/disquet.png"))); // NOI18N
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/salir2.png"))); // NOI18N
         jbSalir.setText("SALIR");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

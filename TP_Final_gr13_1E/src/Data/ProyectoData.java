@@ -97,7 +97,7 @@ public class ProyectoData {
     
       public void actualizarProyecto(Proyecto proyecto) {
 
-        String sql = "UPDATE proyecto SET nombre = ?, descripcion = ? , fechaDeInicio = ? , estado = ? WHERE  idProyecto = ?";
+        String sql = "UPDATE proyecto SET nombre = ?, descripcion = ? , fechaInicio = ? , estado = ? WHERE  idProyecto = ?";
         PreparedStatement ps = null;
 
         try {

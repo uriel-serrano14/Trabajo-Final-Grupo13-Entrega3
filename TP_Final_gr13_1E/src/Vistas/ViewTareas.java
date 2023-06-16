@@ -44,7 +44,6 @@ public class ViewTareas extends javax.swing.JInternalFrame {
 
     private void armarCabecera() {
         ArrayList titulos=new ArrayList();
-        titulos.add("ID");
         titulos.add("Nombre");
         titulos.add("Fecha de inicio");
         titulos.add("Fecha de cierre");
@@ -62,13 +61,13 @@ public class ViewTareas extends javax.swing.JInternalFrame {
                 int estado = t.getEstado();
                 switch (estado) {
                     case 1:
-                        modelo.addRow(new Object[]{t.getIdTarea(),t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Pendiente"});
+                        modelo.addRow(new Object[]{t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Pendiente"});
                         break;
                     case 2:
-                        modelo.addRow(new Object[]{t.getIdTarea(),t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Progreso"});
+                        modelo.addRow(new Object[]{t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Progreso"});
                         break;
                     case 3:
-                        modelo.addRow(new Object[]{t.getIdTarea(),t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Finalizada"});
+                        modelo.addRow(new Object[]{t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Finalizada"});
                         break;           
                 }
                 
@@ -110,15 +109,19 @@ public class ViewTareas extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jcProyectos = new javax.swing.JComboBox<>();
-        jChBFiltrar = new javax.swing.JCheckBox();
-        jcMiembro = new javax.swing.JComboBox<>();
-        jcEstado = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtTareas = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jcEstadoProyecto = new javax.swing.JComboBox<>();
+        jbActualizar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jcMiembro = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jcEstado = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jChBFiltrar = new javax.swing.JCheckBox();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Proyecto");
@@ -128,32 +131,6 @@ public class ViewTareas extends javax.swing.JInternalFrame {
                 jcProyectosActionPerformed(evt);
             }
         });
-
-        jChBFiltrar.setText("Filtrar");
-        jChBFiltrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jChBFiltrarActionPerformed(evt);
-            }
-        });
-
-        jcMiembro.setEnabled(false);
-        jcMiembro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcMiembroActionPerformed(evt);
-            }
-        });
-
-        jcEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendiente", "Progreso", "Finalizada" }));
-        jcEstado.setEnabled(false);
-        jcEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcEstadoActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Miembro");
-
-        jLabel3.setText("Estado");
 
         jLabel4.setText("Tareas");
 
@@ -182,6 +159,7 @@ public class ViewTareas extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtTareas);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/salir2.png"))); // NOI18N
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,63 +167,133 @@ public class ViewTareas extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel5.setText("Estado del Proyecto");
+
+        jcEstadoProyecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendiente", "Proceso", "Finalizado" }));
+
+        jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/actualizar.png"))); // NOI18N
+        jbActualizar.setText("Actualizar");
+        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbActualizarActionPerformed(evt);
+            }
+        });
+
+        jcMiembro.setEnabled(false);
+        jcMiembro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcMiembroActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel2.setText("Miembro ");
+
+        jcEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendiente", "Progreso", "Finalizada" }));
+        jcEstado.setEnabled(false);
+        jcEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcEstadoActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel3.setText("Estado de la Tarea");
+
+        jChBFiltrar.setText("Filtrar");
+        jChBFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jChBFiltrarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jChBFiltrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jcEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jcMiembro, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcMiembro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jChBFiltrar))
+                .addGap(15, 15, 15))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(324, 324, 324)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(179, 179, 179)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jcProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton1)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jcProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(69, 69, 69)
-                                    .addComponent(jChBFiltrar)
-                                    .addGap(28, 28, 28)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel3)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
-                                            .addComponent(jLabel2)
-                                            .addGap(57, 57, 57))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jcEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jcMiembro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                            .addComponent(jLabel5)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jcEstadoProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(jbActualizar)))
+                        .addGap(144, 144, 144))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(341, 341, 341)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
+                .addGap(34, 34, 34)
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jChBFiltrar)
-                    .addComponent(jcEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcMiembro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                    .addComponent(jcEstadoProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbActualizar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
                 .addComponent(jButton1)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -257,12 +305,32 @@ public class ViewTareas extends javax.swing.JInternalFrame {
 
     private void jcProyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcProyectosActionPerformed
        //PROYECTOOOOOOO
+       estadoProyecto();
+       jChBFiltrar.setSelected(false);
+       jcMiembro.setEnabled(false);
+       jcEstado.setEnabled(false);
        cargaMiembros();
        borrarFilas();
        llenarTabla();
        
     }//GEN-LAST:event_jcProyectosActionPerformed
 
+    private void estadoProyecto(){
+        Proyecto t = (Proyecto) jcProyectos.getSelectedItem();
+        int estado = t.getEstado();
+        switch (estado) {
+            case 1:
+                jcEstadoProyecto.setSelectedItem("Pendiente");
+                break;
+            case 2:
+                jcEstadoProyecto.setSelectedItem("Proceso");
+                break; 
+            case 3:
+                jcEstadoProyecto.setSelectedItem("Finalizado");
+                break;  
+        }
+    }
+    
     private void jChBFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jChBFiltrarActionPerformed
         boolean op = jChBFiltrar.isSelected();
         if(op){
@@ -286,6 +354,25 @@ public class ViewTareas extends javax.swing.JInternalFrame {
         llenarTablaTareasPorMiembro();
     }//GEN-LAST:event_jcMiembroActionPerformed
 
+    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
+        String estado = (String) jcEstadoProyecto.getSelectedItem();
+        Proyecto t = (Proyecto) jcProyectos.getSelectedItem();
+        switch (estado) {
+            case "Pendiente":
+                t.setEstado(1);
+                pd.actualizarProyecto(t);
+                break;
+            case "Proceso":
+                t.setEstado(2);
+                pd.actualizarProyecto(t);
+                break;
+            case "Finalizado":
+                t.setEstado(3);
+                pd.actualizarProyecto(t);
+                break;
+        }
+    }//GEN-LAST:event_jbActualizarActionPerformed
+
     private void llenarTablaTareasPorEstado(){
             Proyecto proyecto = (Proyecto) jcProyectos.getSelectedItem();
             List<Tarea> tareas = td.buscarTareasPorProyecto(proyecto.getIdProyecto());
@@ -299,17 +386,17 @@ public class ViewTareas extends javax.swing.JInternalFrame {
                 switch (estadoTabla) {
                     case "Pendiente":
                         if(estado == 1){
-                            modelo.addRow(new Object[]{t.getIdTarea(),t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Pendiente"});
+                            modelo.addRow(new Object[]{t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Pendiente"});
                         }
                         break;
                     case "Progreso":
                         if(estado == 2){
-                            modelo.addRow(new Object[]{t.getIdTarea(),t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Progreso"});
+                            modelo.addRow(new Object[]{t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Progreso"});
                         }
                         break;
                     case "Finalizada":
                         if(estado == 3){
-                            modelo.addRow(new Object[]{t.getIdTarea(),t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Finalizada"});
+                            modelo.addRow(new Object[]{t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Finalizada"});
                         }
                         break;  
             }
@@ -326,13 +413,13 @@ public class ViewTareas extends javax.swing.JInternalFrame {
                     int estado = t.getEstado();
                     switch (estado) {
                         case 1:
-                            modelo.addRow(new Object[]{t.getIdTarea(),t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Pendiente"});
+                            modelo.addRow(new Object[]{t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Pendiente"});
                             break;
                         case 2:
-                            modelo.addRow(new Object[]{t.getIdTarea(),t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Progreso"});
+                            modelo.addRow(new Object[]{t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Progreso"});
                             break;
                         case 3:
-                            modelo.addRow(new Object[]{t.getIdTarea(),t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Finalizada"});
+                            modelo.addRow(new Object[]{t.getNombr(),t.getFechaCreacion(),t.getFechaCierre(),"Finalizada"});
                             break;           
                 }              
             }
@@ -347,8 +434,12 @@ public class ViewTareas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbActualizar;
     private javax.swing.JComboBox<String> jcEstado;
+    private javax.swing.JComboBox<String> jcEstadoProyecto;
     private javax.swing.JComboBox<Miembro> jcMiembro;
     private javax.swing.JComboBox<Proyecto> jcProyectos;
     private javax.swing.JTable jtTareas;
