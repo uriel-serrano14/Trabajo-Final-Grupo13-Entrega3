@@ -45,9 +45,11 @@ public class ViewCrearComentario extends javax.swing.JInternalFrame {
         jbGuardar = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setText("Comentar");
+        jLabel1.setText("COMENTAR");
 
         jLabel2.setText("Comentario:");
+
+        jtxtComentario.setBackground(new java.awt.Color(0, 153, 255));
 
         jLabel3.setText("Fecha de Avance:");
 

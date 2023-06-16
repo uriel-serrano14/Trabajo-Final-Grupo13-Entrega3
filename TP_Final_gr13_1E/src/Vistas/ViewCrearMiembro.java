@@ -46,12 +46,18 @@ public class ViewCrearMiembro extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Dni:");
 
+        jtxtApellido.setBackground(new java.awt.Color(0, 153, 255));
         jtxtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxtApellidoActionPerformed(evt);
             }
         });
 
+        jtxtNombre.setBackground(new java.awt.Color(0, 153, 255));
+
+        jtxtDni.setBackground(new java.awt.Color(0, 153, 255));
+
+        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/disquet.png"))); // NOI18N
         jbGuardar.setText("GUARDAR");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +65,7 @@ public class ViewCrearMiembro extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(0, 51, 255));
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("CREAR NUEVO MIEMBRO");
 
@@ -95,8 +102,9 @@ public class ViewCrearMiembro extends javax.swing.JInternalFrame {
                             .addComponent(jtxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jbGuardar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)
+                        .addGap(6, 6, 6)))
                 .addGap(86, 86, 86))
         );
         layout.setVerticalGroup(
@@ -116,10 +124,10 @@ public class ViewCrearMiembro extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jtxtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
 

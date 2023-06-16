@@ -48,7 +48,7 @@ public class ViewEquipoMT extends javax.swing.JInternalFrame {
     
     private void armarCabeceraMiembros() {
         ArrayList titulos=new ArrayList();
-        titulos.add("ID");
+    //    titulos.add("ID");
         titulos.add("Nombre");
         titulos.add("Apellido");
         titulos.add("DNI");
@@ -64,7 +64,7 @@ public class ViewEquipoMT extends javax.swing.JInternalFrame {
             Equipo equipo = (Equipo) jcbEquipos.getSelectedItem();
             List<Miembro> miembros = emd.buscarMiembrosPorEquipo(equipo.getIdEquipo());       
             for (Miembro m : miembros) {
-            modelo.addRow(new Object[]{m.getIdMiembro(),m.getNombre(),m.getApellido(),m.getDni()});
+            modelo.addRow(new Object[]{m.getNombre(),m.getApellido(),m.getDni()});
         }
     }
     
@@ -122,6 +122,7 @@ public class ViewEquipoMT extends javax.swing.JInternalFrame {
 
         jLabel2.setText("MIEMBROS");
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/disquet.png"))); // NOI18N
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,8 +185,8 @@ public class ViewEquipoMT extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1)
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(39, 39, 39))))
                 .addGap(15, 15, 15))
             .addGroup(layout.createSequentialGroup()
@@ -206,7 +207,7 @@ public class ViewEquipoMT extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jcbEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
@@ -227,12 +228,12 @@ public class ViewEquipoMT extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jdcFechaCierre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();

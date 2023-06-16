@@ -35,7 +35,7 @@ public class ViewMiembros extends javax.swing.JInternalFrame {
     }
     private void armarCabeceraMiembros() {
         ArrayList titulos=new ArrayList();
-        titulos.add("ID");
+     //   titulos.add("ID");
         titulos.add("Nombre");
         titulos.add("Apellido");
         titulos.add("DNI");
@@ -59,9 +59,9 @@ public class ViewMiembros extends javax.swing.JInternalFrame {
             for (Miembro m : miembros) {
                 Tarea t = emd.buscarTareaPorMiembro(m.getIdMiembro());
                 if(t!=null){
-                    modelo.addRow(new Object[]{m.getIdMiembro(),m.getNombre(),m.getApellido(),m.getDni(),m.getEstado(),t.getNombr()});
+                    modelo.addRow(new Object[]{m.getNombre(),m.getApellido(),m.getDni(),m.getEstado(),t.getNombr()});
                 }else{
-                    modelo.addRow(new Object[]{m.getIdMiembro(),m.getNombre(),m.getApellido(),m.getDni(),m.getEstado(),"Sin Asignar"});
+                    modelo.addRow(new Object[]{m.getNombre(),m.getApellido(),m.getDni(),m.getEstado(),"Sin Asignar"});
                 }
         }
     }
@@ -124,7 +124,7 @@ public class ViewMiembros extends javax.swing.JInternalFrame {
             jtMiembros.getColumnModel().getColumn(0).setMaxWidth(25);
         }
 
-        jButton1.setText("Salir");
+        jButton1.setText("SALIR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
