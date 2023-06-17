@@ -73,7 +73,6 @@ public class ViewCrearProyecto extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Estado:");
 
-        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/disquet.png"))); // NOI18N
         jbGuardar.setText("GUARDAR");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +80,6 @@ public class ViewCrearProyecto extends javax.swing.JInternalFrame {
             }
         });
 
-        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/salir2.png"))); // NOI18N
         jbSalir.setText("SALIR");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

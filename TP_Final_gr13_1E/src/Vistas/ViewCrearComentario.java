@@ -55,7 +55,6 @@ public class ViewCrearComentario extends javax.swing.JInternalFrame {
 
         jdcFechaAvance.setBackground(new java.awt.Color(204, 255, 255));
 
-        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/disquet.png"))); // NOI18N
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
