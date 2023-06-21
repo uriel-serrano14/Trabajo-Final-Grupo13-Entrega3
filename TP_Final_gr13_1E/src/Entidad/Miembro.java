@@ -72,7 +72,7 @@ public class Miembro {
 
     @Override
     public String toString() {
-        return  idMiembro +" "+ nombre + " " +apellido;
+        return  nombre + " " +apellido;
     }
    
 }

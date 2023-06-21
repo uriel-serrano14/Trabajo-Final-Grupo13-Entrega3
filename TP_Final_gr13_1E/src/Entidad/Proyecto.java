@@ -74,7 +74,7 @@ public class Proyecto {
 
     @Override
     public String toString() {
-        return  idProyecto + " " + nombre;
+        return  nombre;
     }
    
 }
