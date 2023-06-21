@@ -30,6 +30,7 @@ public class ViewAsignarMiembro extends javax.swing.JInternalFrame {
     private DefaultTableModel modelo = new DefaultTableModel();
     private TareaData td = new TareaData();
     private MiembroData md = new MiembroData();
+
     /**
      * Creates new form ViewAsignarMiembro
      */
@@ -192,9 +193,11 @@ public class ViewAsignarMiembro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jrbAsignadosActionPerformed
 
     private void jbAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAsignarActionPerformed
-        //  Equipo eq = (Equipo) jcbEquipos.getSelectedItem();
-        if (JOptionPane.showConfirmDialog(this, "¿Quiere agregar el miembro " + ((String)(jtMimebros.getValueAt(jtMimebros.getSelectedRow(), 0))) + " al equipo?" ) == 0) {
-            try {
+        try {
+//  Equipo eq = (Equipo) jcbEquipos.getSelectedItem();
+            if (JOptionPane.showConfirmDialog(this, "¿Quiere agregar el miembro "
+                    + ((String) (jtMimebros.getValueAt(jtMimebros.getSelectedRow(), 0))) + " al equipo?") == 0) {
+
                 Equipo e = (Equipo) jcbEquipos.getSelectedItem();
                 int dni = (Integer) (jtMimebros.getValueAt(jtMimebros.getSelectedRow(), 2));
                 Miembro m = md.buscarMiembroPorDni(dni);
@@ -202,11 +205,10 @@ public class ViewAsignarMiembro extends javax.swing.JInternalFrame {
                 emd.guardarEquipoMiembro(em);
                 borrarFila();
                 llenarTablaNoAsignados();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Seleccione un miembro");
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Seleccione un miembro");
         }
-
     }//GEN-LAST:event_jbAsignarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
