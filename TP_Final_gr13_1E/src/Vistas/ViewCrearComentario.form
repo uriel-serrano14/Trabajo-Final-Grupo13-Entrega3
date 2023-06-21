@@ -78,11 +78,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtxtComentario">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="41" green="3f" red="3c" type="rgb"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -90,11 +85,6 @@
       </Properties>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jdcFechaAvance">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="cc" type="rgb"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbGuardar">
       <Properties>

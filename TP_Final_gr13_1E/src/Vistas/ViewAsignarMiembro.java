@@ -193,13 +193,15 @@ public class ViewAsignarMiembro extends javax.swing.JInternalFrame {
 
     private void jbAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAsignarActionPerformed
         //  Equipo eq = (Equipo) jcbEquipos.getSelectedItem();
-        if (JOptionPane.showConfirmDialog(this, "seguro?") == 0) {
+        if (JOptionPane.showConfirmDialog(this, "¿Quiere agregar el miembro " + ((String)(jtMimebros.getValueAt(jtMimebros.getSelectedRow(), 0))) + " al equipo?" ) == 0) {
             try {
                 Equipo e = (Equipo) jcbEquipos.getSelectedItem();
                 int dni = (Integer) (jtMimebros.getValueAt(jtMimebros.getSelectedRow(), 2));
                 Miembro m = md.buscarMiembroPorDni(dni);
                 EquipoMiembros em = new EquipoMiembros(e, m, LocalDate.now());
                 emd.guardarEquipoMiembro(em);
+                borrarFila();
+                llenarTablaNoAsignados();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Seleccione un miembro");
             }

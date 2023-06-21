@@ -46,16 +46,11 @@ public class ViewCrearMiembro extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Dni:");
 
-        jtxtApellido.setBackground(new java.awt.Color(0, 153, 255));
         jtxtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxtApellidoActionPerformed(evt);
             }
         });
-
-        jtxtNombre.setBackground(new java.awt.Color(0, 153, 255));
-
-        jtxtDni.setBackground(new java.awt.Color(0, 153, 255));
 
         jbGuardar.setText("GUARDAR");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {

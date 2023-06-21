@@ -49,11 +49,7 @@ public class ViewCrearComentario extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Comentario:");
 
-        jtxtComentario.setBackground(new java.awt.Color(60, 63, 65));
-
         jLabel3.setText("Fecha de Avance:");
-
-        jdcFechaAvance.setBackground(new java.awt.Color(204, 255, 255));
 
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {

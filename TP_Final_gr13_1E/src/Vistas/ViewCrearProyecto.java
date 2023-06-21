@@ -52,8 +52,6 @@ public class ViewCrearProyecto extends javax.swing.JInternalFrame {
         jbGuardar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 255));
-
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("CREAR NUEVO PROYECTO");
 

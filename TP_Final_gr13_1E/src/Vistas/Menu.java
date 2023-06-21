@@ -82,7 +82,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setText("NUEVO PROYECTO");
+        jMenuItem1.setText("Nuevo proyecto");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -90,7 +90,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem8.setText("TAREAS");
+        jMenuItem8.setText("Comentarios");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);
@@ -98,7 +98,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem8);
 
-        jMenuItem9.setText("BUSCAR TAREAS");
+        jMenuItem9.setText("Buscar tareas");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem9ActionPerformed(evt);
@@ -115,7 +115,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem3.setText("CREAR MIEMBRO");
+        jMenuItem3.setText("Nuevo miembro");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -123,7 +123,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem3);
 
-        jMenuItem5.setText("BUSCAR MIEMBROS");
+        jMenuItem5.setText("Buscar miembros");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -135,7 +135,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu4.setText("EQUIPOS");
 
-        jMenuItem6.setText("CREAR EQUIPOS");
+        jMenuItem6.setText("Nuevo equipo");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -143,7 +143,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem6);
 
-        jMenuItem7.setText("MIEMBROS Y TAREAS");
+        jMenuItem7.setText("Asignar tareas a miembros");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
@@ -151,7 +151,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem7);
 
-        jMenuItem11.setText("ASIGNAR MIEMBROS A EQUIPOS");
+        jMenuItem11.setText("Asignar miembros a equipos");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem11ActionPerformed(evt);
@@ -345,19 +345,4 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 
-//    class ImagenFondo extends JPanel {
-//
-//        private Image imagen;
-//
-//        @Override
-//        public void paint(Graphics q) {
-//            imagen = new ImageIcon (getClass().getResource("/disquet.png")).getImage();
-//            
-//            q.drawImage(imagen, 0, 0, getWidth(),getHeight(),this);
-//            setOpaque(false);
-//            super.paint(q);
-//    }
-//
-//
-//    }
 }

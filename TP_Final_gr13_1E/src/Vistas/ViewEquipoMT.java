@@ -147,7 +147,7 @@ public class ViewEquipoMT extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("EQUIPOS");
 
-        jLabel4.setText("Cree una tarea y seleccione un miembro a cargo.");
+        jLabel4.setText("Cree una tarea y seleccione un miembro acargo.");
 
         jLabel5.setText("Nombre:");
 
@@ -168,10 +168,10 @@ public class ViewEquipoMT extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtxtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
-                    .addComponent(jdcFechaCierre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jdcFechaCreacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jdcFechaCreacion, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jdcFechaCierre, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 80, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(176, 176, 176)
@@ -220,14 +220,14 @@ public class ViewEquipoMT extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jtxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jdcFechaCreacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jdcFechaCierre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jdcFechaCreacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jdcFechaCierre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -251,10 +251,6 @@ public class ViewEquipoMT extends javax.swing.JInternalFrame {
         TareaData td = new TareaData();
         
         try {
-//            miembro.setIdMiembro((Integer)(jtMiembros.getValueAt(jtMiembros.getSelectedRow(), 0)));
-//            miembro.setNombre((String)(jtMiembros.getValueAt(jtMiembros.getSelectedRow(), 1)));
-//            miembro.setApellido((String)(jtMiembros.getValueAt(jtMiembros.getSelectedRow(), 2)));
-//            miembro.setDni((Integer)(jtMiembros.getValueAt(jtMiembros.getSelectedRow(), 3)));
             miembro = md.buscarMiembroPorDni((Integer)(jtMiembros.getValueAt(jtMiembros.getSelectedRow(), 2)));
 
             java.util.Date fechaSeleccionada = jdcFechaCreacion.getDate();
@@ -277,6 +273,7 @@ public class ViewEquipoMT extends javax.swing.JInternalFrame {
                     tarea.setFechaCreacion(fechaLocal);
                     tarea.setFechaCierre(fechaLocalCierre);
                     tarea.setEquipoMiembros(em);
+
                     td.guardarTarea(tarea);
                     limpiar();
                 }
@@ -288,6 +285,7 @@ public class ViewEquipoMT extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
     public void limpiar(){
         jtxtNombre.setText("");
         jdcFechaCreacion.setDate(null);
