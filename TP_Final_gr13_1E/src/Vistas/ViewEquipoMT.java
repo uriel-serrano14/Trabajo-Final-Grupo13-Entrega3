@@ -147,7 +147,7 @@ public class ViewEquipoMT extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("EQUIPOS");
 
-        jLabel4.setText("Cree una tarea y seleccione un miembro acargo.");
+        jLabel4.setText("Cree una tarea y seleccione un miembro a cargo.");
 
         jLabel5.setText("Nombre:");
 
